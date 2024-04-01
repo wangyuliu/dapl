@@ -1,0 +1,1594 @@
+[    0s] Using BUILD_ROOT=/var/cache/obs/worker/root_24/.mount
+[    0s] Using BUILD_ARCH=riscv64
+[    0s] Doing kvm build in /var/cache/obs/worker/root_24/root
+[    0s] 
+[    0s] 
+[    0s] i04-ch4c started "build dapl.spec" at Mon Feb 26 20:32:09 UTC 2024.
+[    0s] 
+[    0s] Building dapl for project 'openSUSE:Factory:RISCV' repository 'standard' arch 'riscv64' srcmd5 '48ba7896457b2a39a50273ec85c38a14'
+[    0s] 
+[    0s] processing recipe /var/cache/obs/worker/root_24/.build-srcdir/dapl.spec ...
+[    0s] running changelog2spec --target rpm --file /var/cache/obs/worker/root_24/.build-srcdir/dapl.spec
+[    0s] init_buildsystem --configdir /var/run/obs/worker/24/build/configs --cachedir /var/cache/build --prepare --clean --rpmlist /var/cache/obs/worker/root_24/.build.rpmlist /var/cache/obs/worker/root_24/.build-srcdir/dapl.spec build ...
+[    1s] unpacking preinstall image openSUSE:Factory:RISCV/standard/preinstallimage-base [171ce2096621b8c4dfaeed29a75e2381]
+[    2s] 
+[    2s] copying packages...
+[    2s] reordering...cycle: libefa1 -> libibverbs1 -> libibverbs
+[    2s]   breaking dependency libibverbs -> libefa1
+[    2s] cycle: libibverbs1 -> libibverbs
+[    2s]   breaking dependency libibverbs -> libibverbs1
+[    2s] cycle: libibverbs1 -> libibverbs -> libmana1
+[    2s]   breaking dependency libibverbs -> libmana1
+[    2s] cycle: libibverbs1 -> libibverbs -> libmlx4-1
+[    2s]   breaking dependency libibverbs -> libmlx4-1
+[    2s] cycle: libibverbs1 -> libibverbs -> libmlx5-1
+[    2s]   breaking dependency libmlx5-1 -> libibverbs1
+[    2s] done
+[    2s] Detected virtio-serial support
+[    2s] QEMU 7.1.0 detected: Skipping iothreads because of bsc#1204082
+[    3s] booting kvm...
+[    3s] ### VM INTERACTION START ###
+[    3s] Using virtio-serial support and enabling console input
+[    3s] /usr/bin/qemu-kvm -nodefaults -no-reboot -nographic -vga none -cpu host -M pc,accel=kvm,usb=off,dump-guest-core=off,vmport=off -sandbox on -bios /usr/share/qemu/qboot.rom -object rng-random,filename=/dev/random,id=rng0 -device virtio-rng-pci,rng=rng0 -runas qemu -net none -kernel /var/cache/obs/worker/root_24/.mount/boot/kernel -initrd /var/cache/obs/worker/root_24/.mount/boot/initrd -append root=/dev/disk/by-id/virtio-0 rootfstype=ext4 rootflags=noatime kvmclock mitigations=off elevator=noop nmi_watchdog=0 rw rd.driver.pre=binfmt_misc oops=panic panic=1 quiet console=hvc0 init=/.build/initvm.x86_64 -m 16384 -drive file=/var/cache/obs/worker/root_24/root,format=raw,if=none,id=disk,cache=unsafe,aio=io_uring -device virtio-blk-pci,drive=disk,serial=0 -drive file=/var/cache/obs/worker/root_24/swap,format=raw,if=none,id=swap,cache=unsafe,aio=io_uring -device virtio-blk-pci,drive=swap,serial=1 -device virtio-serial,max_ports=2 -device virtconsole,chardev=virtiocon0 -chardev stdio,mux=on,id=virtiocon0 -mon chardev=virtiocon0 -chardev socket,id=monitor,server=on,wait=off,path=/var/cache/obs/worker/root_24/root.qemu/monitor -mon chardev=monitor,mode=readline -smp 4
+[    4s] [    0.546337][    T1] systemd[1]: Failed to start Virtual Console Setup.
+[    4s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    4s] [    0.724158] dracut-pre-udev[311]: sh: line 1: /usr/lib/module-init-tools/unblacklist: No such file or directory
+[    5s] [[0;1;31mFAILED[0m] Failed to start [0;1;39mVirtual Console Setup[0m.
+[    6s] ### VM INTERACTION END ###
+[    6s] 2nd stage started in virtual machine
+[    6s] machine type: riscv64
+[    6s] Linux version: 6.7.6-1-default #1 SMP PREEMPT_DYNAMIC Fri Feb 23 09:15:04 UTC 2024 (b9dc7c6)
+[    6s] Time: Mon Feb 26 20:32:14 UTC 2024
+[    6s] Increasing log level from now on...
+[    6s] [    2.587187][  T413] sysrq: Changing Loglevel
+[    6s] [    2.587291][  T413] sysrq: Loglevel set to 4
+[    6s] Enable sysrq operations
+[    6s] Setting up swapspace version 1, size = 4 GiB (4294963200 bytes)
+[    6s] no label, UUID=1dabbbcc-edbd-457e-a517-9ca796b26ad4
+[    6s] swapon: /dev/vdb: found signature [pagesize=4096, signature=swap]
+[    6s] swapon: /dev/vdb: pagesize=4096, swapsize=4294967296, devsize=4294967296
+[    6s] swapon /dev/vdb
+[    6s] WARNING: udev not running, creating extra device nodes
+[    7s] logging output to //.build.log...
+[    7s] processing recipe /.build-srcdir/dapl.spec ...
+[    7s] init_buildsystem --configdir /.build/configs --cachedir /var/cache/build /.build-srcdir/dapl.spec build ...
+[    7s] initializing rpm db...
+[    7s] querying package ids...
+[   19s] [1/155] preinstalled aaa_base-84.87+git20240202.9526d46-1.1
+[   19s] [2/155] preinstalled aaa_base-malloccheck-84.87+git20240202.9526d46-1.1
+[   19s] [3/155] preinstalled attr-2.5.2-1.1
+[   19s] [4/155] preinstalled bash-5.2.26-10.1
+[   19s] [5/155] preinstalled bash-sh-5.2.26-10.1
+[   19s] [6/155] preinstalled binutils-2.42-2.1
+[   19s] [7/155] preinstalled brp-check-suse-84.87+git20230324.8680ce4-1.1
+[   19s] [8/155] preinstalled build-compare-20230617T171717.50241a8-1.1
+[   19s] [9/155] preinstalled build-mkbaselibs-20240221-1.1
+[   19s] [10/155] preinstalled bzip2-1.0.8-5.2
+[   19s] [11/155] preinstalled chkstat-1699_20240206-1.1
+[   19s] [12/155] preinstalled compat-usrmerge-build-84.87-5.4
+[   19s] [13/155] preinstalled compat-usrmerge-tools-84.87-5.4
+[   19s] [14/155] preinstalled coreutils-9.4-4.1
+[   19s] [15/155] preinstalled cpio-2.15-1.1
+[   19s] [16/155] preinstalled cpp-13-2.1
+[   19s] [17/155] preinstalled cpp13-13.2.1+git8285-1.2
+[   19s] [18/155] cumulate crypto-policies-20230920.570ea89-3.1
+[   19s] [19/155] preinstalled debugedit-5.0-5.3
+[   19s] [20/155] preinstalled diffutils-3.10-1.2
+[   19s] [21/155] preinstalled dwz-0.15-2.3
+[   19s] [22/155] preinstalled elfutils-0.190-1.2
+[   19s] [23/155] preinstalled file-5.45-1.2
+[   19s] [24/155] preinstalled file-magic-5.45-1.2
+[   19s] [25/155] preinstalled filesystem-84.87-15.1
+[   19s] [26/155] preinstalled fillup-1.42-280.1
+[   19s] [27/155] preinstalled findutils-4.9.0-3.2
+[   19s] [28/155] preinstalled gawk-5.3.0-1.2
+[   19s] [29/155] preinstalled gcc-13-2.1
+[   19s] [30/155] preinstalled gcc-PIE-13-2.1
+[   19s] [31/155] preinstalled gcc13-13.2.1+git8285-1.2
+[   19s] [32/155] preinstalled gcc13-PIE-13.2.1+git8285-1.2
+[   19s] [33/155] preinstalled gettext-runtime-mini-0.21.1-2.2
+[   19s] [34/155] preinstalled gettext-tools-mini-0.21.1-2.2
+[   19s] [35/155] preinstalled glibc-2.39-2.1
+[   19s] [36/155] preinstalled glibc-devel-2.39-2.1
+[   19s] [37/155] preinstalled glibc-locale-base-2.39-2.1
+[   19s] [38/155] preinstalled grep-3.11-2.1
+[   19s] [39/155] preinstalled gzip-1.13-2.2
+[   19s] [40/155] preinstalled kernel-obs-build-6.7.6-1.1
+[   19s] [41/155] preinstalled libacl1-2.3.2-1.1
+[   19s] [42/155] preinstalled libasan8-14.0.1+git8957-1.1
+[   19s] [43/155] preinstalled libasm1-0.190-1.2
+[   19s] [44/155] preinstalled libatomic1-14.0.1+git8957-1.1
+[   19s] [45/155] preinstalled libattr1-2.5.2-1.1
+[   19s] [46/155] preinstalled libaudit1-3.1.1-1.2
+[   19s] [47/155] preinstalled libblkid1-2.39.3-4.1
+[   19s] [48/155] preinstalled libbz2-1-1.0.8-5.2
+[   19s] [49/155] preinstalled libcap-ng0-0.8.4-1.2
+[   19s] [50/155] preinstalled libcap2-2.69-1.2
+[   19s] [51/155] preinstalled libcrypt1-4.4.36-1.2
+[   19s] [52/155] preinstalled libctf-nobfd0-2.42-2.1
+[   19s] [53/155] preinstalled libctf0-2.42-2.1
+[   19s] [54/155] preinstalled libdb-4_8-4.8.30-42.2
+[   19s] [55/155] preinstalled libdw1-0.190-1.2
+[   19s] [56/155] preinstalled libeconf0-0.6.1-1.2
+[   19s] [57/155] preinstalled libelf1-0.190-1.2
+[   19s] [58/155] preinstalled libfdisk1-2.39.3-4.1
+[   19s] [59/155] preinstalled libgcc_s1-14.0.1+git8957-1.1
+[   19s] [60/155] preinstalled libgcrypt20-1.10.3-3.2
+[   19s] [61/155] preinstalled libgdbm6-1.23-3.2
+[   19s] [62/155] preinstalled libgdbm_compat4-1.23-3.2
+[   19s] [63/155] preinstalled libgmp10-6.3.0-2.2
+[   19s] [64/155] preinstalled libgomp1-14.0.1+git8957-1.1
+[   19s] [65/155] preinstalled libgpg-error0-1.47-2.2
+[   19s] [66/155] cumulate libibumad3-49.1-2.1
+[   19s] [67/155] preinstalled libisl23-0.26-1.2
+[   19s] [68/155] preinstalled libitm1-14.0.1+git8957-1.1
+[   19s] [69/155] cumulate libltdl7-2.4.7-3.4
+[   19s] [70/155] preinstalled liblua5_4-5-5.4.6-3.2
+[   19s] [71/155] preinstalled liblzma5-5.4.6-1.2
+[   19s] [72/155] preinstalled libmagic1-5.45-1.2
+[   19s] [73/155] preinstalled libmount1-2.39.3-4.1
+[   19s] [74/155] preinstalled libmpc3-1.3.1-1.4
+[   19s] [75/155] preinstalled libmpfr6-4.2.1-1.2
+[   19s] [76/155] preinstalled libncurses6-6.4.20240210-31.1
+[   19s] [77/155] cumulate libnl-config-3.9.0-1.1
+[   19s] [78/155] preinstalled libpcre2-8-0-10.43-1.1
+[   19s] [79/155] preinstalled libpkgconf4-2.1.1-1.1
+[   19s] [80/155] preinstalled libpopt0-1.19-1.3
+[   19s] [81/155] preinstalled libreadline8-8.2.10-1.2
+[   19s] [82/155] preinstalled librpmbuild10-4.19.1.1-2.1
+[   19s] [83/155] preinstalled libseccomp2-2.5.5-1.2
+[   19s] [84/155] preinstalled libselinux1-3.6-1.2
+[   19s] [85/155] cumulate libsemanage-conf-3.6-1.2
+[   19s] [86/155] cumulate libsepol2-3.6-1.2
+[   19s] [87/155] preinstalled libsmartcols1-2.39.3-4.1
+[   19s] [88/155] preinstalled libstdc++6-14.0.1+git8957-1.1
+[   19s] [89/155] cumulate libsubid4-4.14.5-1.1
+[   19s] [90/155] preinstalled libubsan1-14.0.1+git8957-1.1
+[   19s] [91/155] preinstalled libuuid1-2.39.3-4.1
+[   19s] [92/155] preinstalled libxcrypt-devel-4.4.36-1.2
+[   19s] [93/155] preinstalled libz1-1.3-2.1
+[   19s] [94/155] preinstalled libzstd1-1.5.5-5.2
+[   19s] [95/155] preinstalled linux-glibc-devel-6.7-1.2
+[   19s] [96/155] cumulate login_defs-4.14.5-1.1
+[   19s] [97/155] preinstalled lua54-5.4.6-3.2
+[   19s] [98/155] cumulate m4-1.4.18-7.3
+[   19s] [99/155] preinstalled make-4.4.1-3.1
+[   19s] [100/155] preinstalled ncurses-utils-6.4.20240210-31.1
+[   19s] [101/155] preinstalled pam-1.6.0-4.1
+[   19s] [102/155] preinstalled patch-2.7.6-6.3
+[   19s] [103/155] preinstalled perl-5.38.2-1.2
+[   19s] [104/155] preinstalled perl-base-5.38.2-1.2
+[   19s] [105/155] preinstalled permissions-1699_20240206-1.1
+[   19s] [106/155] preinstalled permissions-config-1699_20240206-1.1
+[   19s] [107/155] preinstalled pkgconf-2.1.1-1.1
+[   19s] [108/155] preinstalled pkgconf-m4-2.1.1-1.1
+[   19s] [109/155] preinstalled pkgconf-pkg-config-2.1.1-1.1
+[   19s] [110/155] preinstalled polkit-default-privs-1550+20240223.b0857d7-1.1
+[   19s] [111/155] preinstalled post-build-checks-84.87+git20240215.a1dbe5c-1.1
+[   19s] [112/155] preinstalled qemu-linux-user-8.2.1-2.1
+[   19s] [113/155] preinstalled rpm-4.19.1.1-2.1
+[   19s] [114/155] preinstalled rpm-build-4.19.1.1-2.1
+[   19s] [115/155] preinstalled rpm-build-perl-4.19.1.1-2.1
+[   19s] [116/155] preinstalled rpm-config-SUSE-20240214-1.1
+[   19s] [117/155] preinstalled rpmlint-mini-2.5.0+git20240215.29f50e5-15.23
+[   19s] [118/155] preinstalled rpmlint-strict-2.5.0+git20240215.29f50e5-1.1
+[   19s] [119/155] preinstalled sed-4.9-2.2
+[   19s] [120/155] cumulate suse-module-tools-16.0.43-1.1
+[   19s] [121/155] preinstalled system-user-root-20190513-2.3
+[   19s] [122/155] cumulate systemd-mini-254.9-2.1
+[   19s] [123/155] preinstalled systemd-rpm-macros-24-1.2
+[   19s] [124/155] cumulate sysuser-shadow-3.2-2.2
+[   19s] [125/155] preinstalled tar-1.35-1.1
+[   19s] [126/155] preinstalled terminfo-base-6.4.20240210-31.1
+[   19s] [127/155] preinstalled update-alternatives-1.22.2-1.2
+[   19s] [128/155] preinstalled util-linux-2.39.3-4.1
+[   19s] [129/155] preinstalled which-2.21-5.3
+[   19s] [130/155] preinstalled xz-5.4.6-1.2
+[   19s] [131/155] cumulate autoconf-2.71-2.3
+[   19s] [132/155] cumulate libibmad5-49.1-2.1
+[   19s] [133/155] cumulate libnl3-200-3.9.0-1.1
+[   19s] [134/155] cumulate libopenssl3-3.1.4-4.1
+[   19s] [135/155] cumulate system-group-hardware-20170617-25.2
+[   19s] [136/155] cumulate system-group-kvm-20170617-25.2
+[   19s] [137/155] cumulate system-user-lp-20170617-25.2
+[   19s] [138/155] cumulate libsemanage2-3.6-1.2
+[   19s] [139/155] cumulate automake-1.16.5-3.3
+[   19s] [140/155] cumulate kmod-31-2.1
+[   19s] [141/155] cumulate libibnetdisc5-49.1-2.1
+[   19s] [142/155] cumulate shadow-4.14.5-1.1
+[   19s] [143/155] cumulate udev-mini-254.9-2.1
+[   19s] [144/155] cumulate infiniband-diags-49.1-2.1
+[   19s] [145/155] cumulate libtool-2.4.7-3.4
+[   19s] [146/155] cumulate rdma-core-49.1-2.1
+[   19s] [147/155] cumulate libmlx5-1-49.1-2.1
+[   19s] [148/155] cumulate libibverbs-49.1-2.1
+[   19s] [149/155] cumulate libibverbs1-49.1-2.1
+[   19s] [150/155] cumulate libefa1-49.1-2.1
+[   19s] [151/155] cumulate libmana1-49.1-2.1
+[   19s] [152/155] cumulate libmlx4-1-49.1-2.1
+[   19s] [153/155] cumulate librdmacm1-49.1-2.1
+[   19s] [154/155] cumulate rsocket-49.1-2.1
+[   19s] [155/155] cumulate rdma-core-devel-49.1-2.1
+[   19s] now installing cumulated packages
+[   20s] Preparing...                          ########################################
+[   20s] Updating / installing...
+[   20s] libibumad3-49.1-2.1                   ########################################
+[   20s] systemd-mini-254.9-2.1                ########################################
+[   21s] Running in chroot, ignoring command 'daemon-reexec'
+[   22s] libibmad5-49.1-2.1                    ########################################
+[   22s] m4-1.4.18-7.3                         ########################################
+[   22s] autoconf-2.71-2.3                     ########################################
+[   22s] automake-1.16.5-3.3                   ########################################
+[   22s] libibnetdisc5-49.1-2.1                ########################################
+[   22s] infiniband-diags-49.1-2.1             ########################################
+[   22s] login_defs-4.14.5-1.1                 ########################################
+[   22s] libsubid4-4.14.5-1.1                  ########################################
+[   23s] libsepol2-3.6-1.2                     ########################################
+[   23s] libsemanage-conf-3.6-1.2              ########################################
+[   23s] libsemanage2-3.6-1.2                  ########################################
+[   23s] shadow-4.14.5-1.1                     ########################################
+[   24s] /usr/bin/newgidmap: setting to root:root 0755 "cap_setgid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[   24s] /usr/bin/newuidmap: setting to root:root 0755 "cap_setuid=ep". (wrong owner/group root:shadow, wrong permissions 4755, missing capabilities)
+[   24s] sysuser-shadow-3.2-2.2                ########################################
+[   24s] /usr/bin/systemd-sysusers --replace=/usr/lib/sysusers.d/system-group-hardware.conf -
+[   24s] Creating group 'kmem' with GID 499.
+[   24s] Creating group 'lock' with GID 498.
+[   24s] Creating group 'tty' with GID 5.
+[   24s] Creating group 'utmp' with GID 497.
+[   24s] Creating group 'audio' with GID 496.
+[   24s] Creating group 'cdrom' with GID 495.
+[   24s] Creating group 'dialout' with GID 494.
+[   24s] Creating group 'disk' with GID 493.
+[   24s] Creating group 'input' with GID 492.
+[   24s] Creating group 'render' with GID 491.
+[   24s] Creating group 'sgx' with GID 490.
+[   24s] Creating group 'tape' with GID 489.
+[   24s] Creating group 'video' with GID 488.
+[   24s] Creating group 'systemd-journal' with GID 487.
+[   24s] system-group-hardware-20170617-25.2   ########################################
+[   24s] /usr/bin/systemd-sysusers --replace=/usr/lib/sysusers.d/system-group-kvm.conf -
+[   25s] Creating group 'kvm' with GID 36.
+[   25s] system-group-kvm-20170617-25.2        ########################################
+[   25s] /usr/bin/systemd-sysusers --replace=/usr/lib/sysusers.d/system-user-lp.conf -
+[   25s] Creating group 'lp' with GID 486.
+[   25s] Creating user 'lp' (Printing daemon) with UID 486 and GID 486.
+[   25s] system-user-lp-20170617-25.2          ########################################
+[   26s] udev-mini-254.9-2.1                   ########################################
+[   26s] Failed to preset unit, unit remote-cryptsetup.target does not exist.
+[   27s] libnl-config-3.9.0-1.1                ########################################
+[   27s] libnl3-200-3.9.0-1.1                  ########################################
+[   27s] libltdl7-2.4.7-3.4                    ########################################
+[   27s] crypto-policies-20230920.570ea89-3.1  ########################################
+[   27s] libopenssl3-3.1.4-4.1                 ########################################
+[   28s] suse-module-tools-16.0.43-1.1         ########################################
+[   28s] kmod-31-2.1                           ########################################
+[   28s] rdma-core-49.1-2.1                    ########################################
+[   28s] libmlx5-1-49.1-2.1                    ########################################
+[   28s] libefa1-49.1-2.1                      ########################################
+[   29s] libmana1-49.1-2.1                     ########################################
+[   29s] libmlx4-1-49.1-2.1                    ########################################
+[   29s] libibverbs1-49.1-2.1                  ########################################
+[   29s] libibverbs-49.1-2.1                   ########################################
+[   29s] librdmacm1-49.1-2.1                   ########################################
+[   29s] rsocket-49.1-2.1                      ########################################
+[   29s] rdma-core-devel-49.1-2.1              ########################################
+[   29s] libtool-2.4.7-3.4                     ########################################
+[   31s] now finalizing build dir...
+[   31s] ... running 01-add_abuild_user_to_trusted_group
+[   31s] ... running 02-set_timezone_to_utc
+[   32s] ... running 03-set-permissions-secure
+[   32s] ... running 11-hack_uname_version_to_kernel_version
+[   33s] setting SOURCE_DATE_EPOCH_MTIME to 1708933394
+[   36s] -----------------------------------------------------------------
+[   36s] I have the following modifications for dapl.spec:
+[   36s] 19c19
+[   36s] < %define flavor @BUILD_FLAVOR@%{nil}
+[   36s] ---
+[   36s] > %define flavor %{nil}
+[   36s] 30c30
+[   36s] < Release:        0
+[   36s] ---
+[   36s] > Release:        6.1
+[   40s] build target is riscv64-suse-linux
+[   40s] -----------------------------------------------------------------
+[   40s] ----- building dapl.spec (user abuild)
+[   40s] -----------------------------------------------------------------
+[   40s] -----------------------------------------------------------------
+[   43s] setting SOURCE_DATE_EPOCH_MTIME to 1708933394
+[   44s] + exec rpmbuild -ba --define '_srcdefattr (-,root,root)' --nosignature --target=riscv64-suse-linux --define '_build_create_debug 1' --define 'disturl obs://build.opensuse.org/openSUSE:Factory:RISCV/standard/48ba7896457b2a39a50273ec85c38a14-dapl' /home/abuild/rpmbuild/SOURCES/dapl.spec
+[   44s] Building target platforms: riscv64-suse-linux
+[   44s] Building for target riscv64-suse-linux
+[   44s] Executing(%prep): /usr/bin/bash -e /var/tmp/rpm-tmp.pqUgsu
+[   44s] + umask 022
+[   44s] + cd /home/abuild/rpmbuild/BUILD
+[   44s] + cd /home/abuild/rpmbuild/BUILD
+[   44s] + rm -rf dapl-2.1.10
+[   44s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/dapl-2.1.10.tar.gz
+[   44s] + STATUS=0
+[   44s] + '[' 0 -ne 0 ']'
+[   44s] + cd dapl-2.1.10
+[   44s] + rm -rf /home/abuild/rpmbuild/BUILD/dapl-2.1.10-SPECPARTS
+[   44s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILD/dapl-2.1.10-SPECPARTS
+[   44s] + /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w .
+[   44s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/dapl-2.0.30-dat-ia-open-hang.patch
+[   44s] + /usr/bin/patch -p0 -s --fuzz=0 --no-backup-if-mismatch -f
+[   45s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/dapl-define_NULL.patch
+[   45s] + /usr/bin/patch -p0 -s --fuzz=0 --no-backup-if-mismatch -f
+[   45s] + /usr/bin/patch -p0 -s --fuzz=0 --no-backup-if-mismatch -f
+[   45s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/dapl-man_page_fixes.patch
+[   45s] + /usr/bin/patch -p0 -s --fuzz=0 --no-backup-if-mismatch -f
+[   45s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/dapl-fsf_address.patch
+[   45s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/dapl-s390.patch
+[   45s] + /usr/bin/patch -p0 -s --fuzz=0 --no-backup-if-mismatch -f
+[   45s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/dapl-add-arm-platform-support.patch
+[   45s] + /usr/bin/patch -p0 -s --fuzz=0 --no-backup-if-mismatch -f
+[   46s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/ucm-mcm-fix-backlog-parameter-for-socket.patch
+[   46s] + /usr/bin/patch -p0 -s --fuzz=0 --no-backup-if-mismatch -f
+[   46s] + /usr/lib/rpm/rpmuncompress /home/abuild/rpmbuild/SOURCES/reproducible.patch
+[   46s] + /usr/bin/patch -p0 -s --fuzz=0 --no-backup-if-mismatch -f
+[   46s] + RPM_EC=0
+[   46s] ++ jobs -p
+[   46s] + exit 0
+[   46s] Executing(%build): /usr/bin/bash -e /var/tmp/rpm-tmp.oqUYnP
+[   46s] + umask 022
+[   46s] + cd /home/abuild/rpmbuild/BUILD
+[   46s] + /usr/bin/rm -rf /home/abuild/rpmbuild/BUILDROOT/dapl-2.1.10-6.1.riscv64
+[   46s] ++ dirname /home/abuild/rpmbuild/BUILDROOT/dapl-2.1.10-6.1.riscv64
+[   46s] + /usr/bin/mkdir -p /home/abuild/rpmbuild/BUILDROOT
+[   46s] + /usr/bin/mkdir /home/abuild/rpmbuild/BUILDROOT/dapl-2.1.10-6.1.riscv64
+[   46s] + cd dapl-2.1.10
+[   46s] + ref=/usr/lib/rpm
+[   46s] + mints=0
+[   46s] + case $(uname -m) in
+[   46s] ++ uname -m
+[   47s] + mints=20160911
+[   47s] + for s in guess sub
+[   47s] ++ find -maxdepth 8 -name config.guess
+[   47s] + for c in $(find -maxdepth 8 -name "config.$s")
+[   47s] + grep -q config-patches@ ./config/config.guess
+[   47s] ++ sed -n '/^timestamp=/{s///;s/[-'\''"]//g;p;q;}' ./config/config.guess
+[   47s] + timestamp=20130610
+[   47s] + test -n 20130610
+[   47s] + test 20130610 -ge 20160911
+[   47s] + install -m 755 /usr/lib/rpm/config.guess ./config/config.guess
+[   47s] + for s in guess sub
+[   47s] ++ find -maxdepth 8 -name config.sub
+[   47s] + for c in $(find -maxdepth 8 -name "config.$s")
+[   47s] + grep -q config-patches@ ./config/config.sub
+[   47s] ++ sed -n '/^timestamp=/{s///;s/[-'\''"]//g;p;q;}' ./config/config.sub
+[   47s] + timestamp=20130424
+[   47s] + test -n 20130424
+[   47s] + test 20130424 -ge 20160911
+[   47s] + install -m 755 /usr/lib/rpm/config.sub ./config/config.sub
+[   47s] + autoreconf -fi
+[   48s] autoreconf: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+[   49s] aclocal: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+[   65s] libtoolize: putting auxiliary files in AC_CONFIG_AUX_DIR, 'config'.
+[   65s] libtoolize: copying file 'config/ltmain.sh'
+[   66s] libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+[   66s] libtoolize: copying file 'm4/libtool.m4'
+[   66s] libtoolize: copying file 'm4/ltoptions.m4'
+[   66s] libtoolize: copying file 'm4/ltsugar.m4'
+[   67s] libtoolize: copying file 'm4/ltversion.m4'
+[   67s] libtoolize: copying file 'm4/lt~obsolete.m4'
+[   68s] aclocal: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+[   79s] configure.in:8: warning: 'AM_CONFIG_HEADER': this macro is obsolete.
+[   79s] configure.in:8: You should use the 'AC_CONFIG_HEADERS' macro instead.
+[   79s] ./lib/autoconf/general.m4:2434: AC_DIAGNOSE is expanded from...
+[   79s] aclocal.m4:745: AM_CONFIG_HEADER is expanded from...
+[   79s] configure.in:8: the top level
+[   79s] configure.in:9: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.
+[   79s] ./lib/autoconf/general.m4:2434: AC_DIAGNOSE is expanded from...
+[   79s] aclocal.m4:429: AM_INIT_AUTOMAKE is expanded from...
+[   79s] configure.in:9: the top level
+[   79s] configure.in:12: warning: The macro `AM_PROG_LIBTOOL' is obsolete.
+[   79s] configure.in:12: You should run autoupdate.
+[   79s] m4/libtool.m4:101: AM_PROG_LIBTOOL is expanded from...
+[   79s] configure.in:12: the top level
+[   81s] autoheader: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+[   86s] automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+[   91s] configure.in:9: warning: AM_INIT_AUTOMAKE: two- and three-arguments forms are deprecated.  For more info, see:
+[   91s] configure.in:9: https://www.gnu.org/software/automake/manual/automake.html#Modernize-AM_005fINIT_005fAUTOMAKE-invocation
+[   92s] configure.in:12: installing 'config/compile'
+[   92s] configure.in:9: installing 'config/missing'
+[   92s] Makefile.am:5: warning: shell expr `uname -r | cut -f1 -d.` \* 65536 + `uname -r | cut -f2 -d.`: non-POSIX variable name
+[   92s] Makefile.am:5: (probably a GNU make extension)
+[   92s] automake: warning: autoconf input should be named 'configure.ac', not 'configure.in'
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_init.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] automake: warning: possible forward-incompatibility.
+[   92s] automake: At least one source file is in a subdirectory, but the 'subdir-objects'
+[   92s] automake: automake option hasn't been enabled.  For now, the corresponding output
+[   92s] automake: object file(s) will be placed in the top-level directory.  However, this
+[   92s] automake: behavior may change in a future Automake major version, with object
+[   92s] automake: files being placed in the same subdirectory as the corresponding sources.
+[   92s] automake: You are advised to start using 'subdir-objects' option throughout your
+[   92s] automake: project, to avoid future incompatibilities.
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_evd_create.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_evd_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_cno_create.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_cno_modify_agent.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_cno_free.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_cno_wait.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_cno_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_lmr_create.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_evd_wait.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_evd_disable.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_evd_enable.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_evd_modify_cno.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_evd_set_unwaitable.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/dapl_evd_clear_unwaitable.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/udapl/linux/dapl_osd.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_cookie.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_cr_accept.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_cr_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_cr_reject.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_cr_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_cr_callback.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_cr_handoff.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_connect.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_create.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_disconnect.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_dup_connect.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_free.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_reset.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_get_status.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_modify.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_post_rdma_read.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_post_rdma_write.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_post_recv.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_post_send.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_evd_dequeue.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_evd_free.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_evd_post_se.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_evd_resize.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_evd_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_evd_cq_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_evd_qp_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_evd_un_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_evd_connection_callb.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_evd_dto_callb.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_get_consumer_context.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_get_handle_type.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_hash.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_hca_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ia_close.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ia_open.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ia_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ia_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_llist.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_lmr_free.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_lmr_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_lmr_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_lmr_sync_rdma_read.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_lmr_sync_rdma_write.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_mr_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_provider.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_sp_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_psp_create.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_psp_create_any.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_psp_free.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_psp_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_pz_create.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_pz_free.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_pz_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_pz_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_rmr_create.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_rmr_free.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_rmr_bind.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_rmr_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_rmr_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_rsp_create.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_rsp_free.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_rsp_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_cno_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_set_consumer_context.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ring_buffer_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_name_service.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_timer_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_create_with_srq.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_recv_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_set_watermark.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_srq_create.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_srq_free.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_srq_query.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_srq_resize.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_srq_post_recv.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_srq_set_lw.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_srq_util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_debug.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ia_ha.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_csp.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_post_send_invalidate.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/common/dapl_ep_post_rdma_read_to_rmr.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/openib_common/mem.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/openib_common/cq.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/openib_common/qp.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/openib_common/util.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/openib_common/srq.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/openib_cma/cm.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:172: warning: source file 'dapl/openib_cma/device.c' is in a subdirectory,
+[   92s] Makefile.am:172: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:30: warning: source file 'dapl/openib_common/ib_extensions.c' is in a subdirectory,
+[   92s] Makefile.am:30: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:24: warning: source file 'dapl/openib_common/collectives/fca_provider.c' is in a subdirectory,
+[   92s] Makefile.am:24: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_init.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_evd_create.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_evd_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_cno_create.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_cno_modify_agent.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_cno_free.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_cno_wait.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_cno_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_lmr_create.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_evd_wait.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_evd_disable.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_evd_enable.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_evd_modify_cno.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_evd_set_unwaitable.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/dapl_evd_clear_unwaitable.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/udapl/linux/dapl_osd.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_cookie.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_cr_accept.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_cr_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_cr_reject.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_cr_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_cr_callback.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_cr_handoff.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_connect.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_create.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_disconnect.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_dup_connect.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_free.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_reset.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_get_status.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_modify.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_post_rdma_read.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_post_rdma_write.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_post_recv.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_post_send.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_evd_dequeue.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_evd_free.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_evd_post_se.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_evd_resize.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_evd_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_evd_cq_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_evd_qp_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_evd_un_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_evd_connection_callb.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_evd_dto_callb.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_get_consumer_context.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_get_handle_type.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_hash.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_hca_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ia_close.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ia_open.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ia_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ia_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_llist.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_lmr_free.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_lmr_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_lmr_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_lmr_sync_rdma_read.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_lmr_sync_rdma_write.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_mr_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_provider.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_sp_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_psp_create.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_psp_create_any.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_psp_free.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_psp_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_pz_create.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_pz_free.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_pz_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_pz_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_rmr_create.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_rmr_free.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_rmr_bind.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_rmr_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_rmr_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_rsp_create.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_rsp_free.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_rsp_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_cno_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_set_consumer_context.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ring_buffer_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_name_service.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_timer_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_create_with_srq.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_recv_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_set_watermark.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_srq_create.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_srq_free.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_srq_query.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_srq_resize.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_srq_post_recv.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_srq_set_lw.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_srq_util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_debug.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ia_ha.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_csp.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_post_send_invalidate.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/common/dapl_ep_post_rdma_read_to_rmr.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/openib_common/mem.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/openib_common/cq.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/openib_common/qp.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/openib_common/util.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/openib_common/srq.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/openib_mcm/cm.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/openib_mcm/mix.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/openib_mcm/proxy.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:524: warning: source file 'dapl/openib_mcm/device.c' is in a subdirectory,
+[   92s] Makefile.am:524: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_init.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_evd_create.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_evd_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_cno_create.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_cno_modify_agent.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_cno_free.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_cno_wait.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_cno_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_lmr_create.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_evd_wait.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_evd_disable.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_evd_enable.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_evd_modify_cno.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_evd_set_unwaitable.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/dapl_evd_clear_unwaitable.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/udapl/linux/dapl_osd.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_cookie.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_cr_accept.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_cr_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_cr_reject.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_cr_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_cr_callback.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_cr_handoff.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_connect.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_create.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_disconnect.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_dup_connect.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_free.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_reset.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_get_status.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_modify.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_post_rdma_read.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_post_rdma_write.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_post_recv.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_post_send.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_evd_dequeue.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_evd_free.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_evd_post_se.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_evd_resize.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_evd_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_evd_cq_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_evd_qp_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_evd_un_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_evd_connection_callb.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_evd_dto_callb.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_get_consumer_context.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_get_handle_type.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_hash.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_hca_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ia_close.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ia_open.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ia_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ia_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_llist.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_lmr_free.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_lmr_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_lmr_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_lmr_sync_rdma_read.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_lmr_sync_rdma_write.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_mr_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_provider.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_sp_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_psp_create.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_psp_create_any.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_psp_free.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_psp_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_pz_create.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_pz_free.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_pz_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_pz_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_rmr_create.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_rmr_free.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_rmr_bind.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_rmr_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_rmr_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_rsp_create.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_rsp_free.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_rsp_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_cno_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_set_consumer_context.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ring_buffer_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_name_service.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_timer_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_create_with_srq.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_recv_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_set_watermark.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_srq_create.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_srq_free.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_srq_query.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_srq_resize.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_srq_post_recv.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_srq_set_lw.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_srq_util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_debug.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ia_ha.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_csp.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_post_send_invalidate.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/common/dapl_ep_post_rdma_read_to_rmr.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/openib_common/mem.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/openib_common/cq.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/openib_common/qp.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/openib_common/util.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/openib_common/srq.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/openib_scm/cm.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:289: warning: source file 'dapl/openib_scm/device.c' is in a subdirectory,
+[   92s] Makefile.am:289: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_init.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_evd_create.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_evd_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_cno_create.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_cno_modify_agent.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_cno_free.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_cno_wait.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_cno_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_lmr_create.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_evd_wait.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_evd_disable.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_evd_enable.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_evd_modify_cno.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_evd_set_unwaitable.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/dapl_evd_clear_unwaitable.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/udapl/linux/dapl_osd.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_cookie.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_cr_accept.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_cr_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_cr_reject.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_cr_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_cr_callback.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_cr_handoff.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_connect.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_create.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_disconnect.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_dup_connect.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_free.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_reset.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_get_status.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_modify.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_post_rdma_read.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_post_rdma_write.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_post_recv.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_post_send.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_evd_dequeue.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_evd_free.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_evd_post_se.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_evd_resize.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_evd_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_evd_cq_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_evd_qp_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_evd_un_async_error_callb.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_evd_connection_callb.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_evd_dto_callb.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_get_consumer_context.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_get_handle_type.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_hash.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_hca_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ia_close.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ia_open.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ia_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ia_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_llist.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_lmr_free.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_lmr_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_lmr_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_lmr_sync_rdma_read.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_lmr_sync_rdma_write.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_mr_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_provider.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_sp_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_psp_create.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_psp_create_any.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_psp_free.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_psp_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_pz_create.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_pz_free.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_pz_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_pz_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_rmr_create.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_rmr_free.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_rmr_bind.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_rmr_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_rmr_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_rsp_create.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_rsp_free.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_rsp_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_cno_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_set_consumer_context.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ring_buffer_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_name_service.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_timer_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_create_with_srq.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_recv_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_set_watermark.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_srq_create.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_srq_free.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_srq_query.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_srq_resize.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_srq_post_recv.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_srq_set_lw.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_srq_util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_debug.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ia_ha.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_csp.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_post_send_invalidate.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/common/dapl_ep_post_rdma_read_to_rmr.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/openib_common/mem.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/openib_common/cq.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/openib_common/qp.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/openib_common/util.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/openib_common/srq.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/openib_ucm/cm.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:406: warning: source file 'dapl/openib_ucm/device.c' is in a subdirectory,
+[   92s] Makefile.am:406: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:156: warning: source file 'dat/udat/udat.c' is in a subdirectory,
+[   92s] Makefile.am:156: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:156: warning: source file 'dat/udat/udat_api.c' is in a subdirectory,
+[   92s] Makefile.am:156: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:156: warning: source file 'dat/udat/udat_sr_parser.c' is in a subdirectory,
+[   92s] Makefile.am:156: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:156: warning: source file 'dat/udat/linux/dat_osd.c' is in a subdirectory,
+[   92s] Makefile.am:156: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:156: warning: source file 'dat/common/dat_api.c' is in a subdirectory,
+[   92s] Makefile.am:156: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:156: warning: source file 'dat/common/dat_dictionary.c' is in a subdirectory,
+[   92s] Makefile.am:156: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:156: warning: source file 'dat/common/dat_strerror.c' is in a subdirectory,
+[   92s] Makefile.am:156: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:156: warning: source file 'dat/common/dat_init.c' is in a subdirectory,
+[   92s] Makefile.am:156: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:156: warning: source file 'dat/common/dat_dr.c' is in a subdirectory,
+[   92s] Makefile.am:156: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:156: warning: source file 'dat/common/dat_sr.c' is in a subdirectory,
+[   92s] Makefile.am:156: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:760: warning: source file 'dapl/svc/mpxyd.c' is in a subdirectory,
+[   92s] Makefile.am:760: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:760: warning: source file 'dapl/svc/util.c' is in a subdirectory,
+[   92s] Makefile.am:760: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:760: warning: source file 'dapl/svc/mix.c' is in a subdirectory,
+[   92s] Makefile.am:760: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:760: warning: source file 'dapl/svc/mcm.c' is in a subdirectory,
+[   92s] Makefile.am:760: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:760: warning: source file 'dapl/svc/mpxy_out.c' is in a subdirectory,
+[   92s] Makefile.am:760: but option 'subdir-objects' is disabled
+[   92s] Makefile.am:760: warning: source file 'dapl/svc/mpxy_in.c' is in a subdirectory,
+[   92s] Makefile.am:760: but option 'subdir-objects' is disabled
+[   92s] Makefile.am: installing 'config/depcomp'
+[   98s] test/dapltest/Makefile.am:11: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_main.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_params.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_fft_cmd.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_getopt.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_limit_cmd.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_netaddr.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_performance_cmd.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_qos_util.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_quit_cmd.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_server_cmd.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'cmd/dapl_transaction_cmd.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_bpool.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_client.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_client_info.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_cnxn.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_execute.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_fft_connmgt.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_fft_endpoint.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_fft_hwconn.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_fft_mem.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_fft_pz.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_fft_queryinfo.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_fft_test.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_fft_util.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_limit.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_memlist.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_performance_client.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_performance_server.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_performance_stats.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_performance_util.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_quit_util.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_server.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_server_info.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_test_data.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_test_util.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_thread.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_transaction_stats.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_transaction_test.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_transaction_util.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'test/dapl_util.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'common/dapl_endian.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'common/dapl_global.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'common/dapl_performance_cmd_util.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'common/dapl_quit_cmd_util.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'common/dapl_transaction_cmd_util.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'udapl/udapl_tdep.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dapltest/Makefile.am:17: warning: source file 'mdep/linux/dapl_mdep_user.c' is in a subdirectory,
+[   98s] test/dapltest/Makefile.am:17: but option 'subdir-objects' is disabled
+[   98s] test/dtest/Makefile.am:18: warning: 'INCLUDES' is the old name for 'AM_CPPFLAGS' (or '*_CPPFLAGS')
+[   99s] + CONFIG_SHELL=/usr/bin/bash
+[   99s] + export CONFIG_SHELL
+[   99s] + CFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g'
+[   99s] + export CFLAGS
+[   99s] + CXXFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g'
+[   99s] + export CXXFLAGS
+[   99s] + FFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g '
+[   99s] + export FFLAGS
+[   99s] + FCFLAGS='-O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g '
+[   99s] + export FCFLAGS
+[   99s] + LDFLAGS=-flto=auto
+[   99s] + export LDFLAGS
+[   99s] + ./configure --host=riscv64-suse-linux --build=riscv64-suse-linux --program-prefix= --disable-dependency-tracking --prefix=/usr --exec-prefix=/usr --bindir=/usr/bin --sbindir=/usr/sbin --sysconfdir=/etc --datadir=/usr/share --includedir=/usr/include --libdir=/usr/lib64 --libexecdir=/usr/libexec --localstatedir=/var --sharedstatedir=/var/lib --mandir=/usr/share/man --infodir=/usr/share/info --disable-static --with-pic
+[  103s] checking for a BSD-compatible install... /usr/bin/install -c
+[  103s] checking whether build environment is sane... yes
+[  103s] checking for a race-free mkdir -p... /usr/bin/mkdir -p
+[  103s] checking for gawk... gawk
+[  103s] checking whether make sets $(MAKE)... yes
+[  103s] checking whether make supports nested variables... yes
+[  103s] checking whether make supports nested variables... (cached) yes
+[  104s] checking build system type... riscv64-suse-linux-gnu
+[  104s] checking host system type... riscv64-suse-linux-gnu
+[  104s] checking how to print strings... printf
+[  104s] checking whether make supports the include directive... yes (GNU style)
+[  104s] checking for riscv64-suse-linux-gcc... no
+[  104s] checking for gcc... gcc
+[  107s] checking whether the C compiler works... yes
+[  107s] checking for C compiler default output file name... a.out
+[  109s] checking for suffix of executables... 
+[  111s] checking whether we are cross compiling... no
+[  112s] checking for suffix of object files... o
+[  113s] checking whether the compiler supports GNU C... yes
+[  113s] checking whether gcc accepts -g... yes
+[  114s] checking for gcc option to enable C11 features... none needed
+[  115s] checking whether gcc understands -c and -o together... yes
+[  115s] checking dependency style of gcc... none
+[  115s] checking for a sed that does not truncate output... /usr/bin/sed
+[  116s] checking for grep that handles long lines and -e... /usr/bin/grep
+[  116s] checking for egrep... /usr/bin/grep -E
+[  116s] checking for fgrep... /usr/bin/grep -F
+[  116s] checking for ld used by gcc... /usr/riscv64-suse-linux/bin/ld
+[  116s] checking if the linker (/usr/riscv64-suse-linux/bin/ld) is GNU ld... yes
+[  116s] checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+[  117s] checking the name lister (/usr/bin/nm -B) interface... BSD nm
+[  117s] checking whether ln -s works... yes
+[  117s] checking the maximum length of command line arguments... 1572864
+[  117s] checking how to convert riscv64-suse-linux-gnu file names to riscv64-suse-linux-gnu format... func_convert_file_noop
+[  117s] checking how to convert riscv64-suse-linux-gnu file names to toolchain format... func_convert_file_noop
+[  117s] checking for /usr/riscv64-suse-linux/bin/ld option to reload object files... -r
+[  117s] checking for riscv64-suse-linux-file... no
+[  117s] checking for file... file
+[  117s] checking for riscv64-suse-linux-objdump... no
+[  117s] checking for objdump... objdump
+[  117s] checking how to recognize dependent libraries... pass_all
+[  117s] checking for riscv64-suse-linux-dlltool... no
+[  117s] checking for dlltool... no
+[  117s] checking how to associate runtime and link libraries... printf %s\n
+[  117s] checking for riscv64-suse-linux-ar... no
+[  117s] checking for ar... ar
+[  118s] checking for archiver @FILE support... @
+[  118s] checking for riscv64-suse-linux-strip... no
+[  118s] checking for strip... strip
+[  118s] checking for riscv64-suse-linux-ranlib... no
+[  118s] checking for ranlib... ranlib
+[  121s] checking command to parse /usr/bin/nm -B output from gcc object... ok
+[  121s] checking for sysroot... no
+[  121s] checking for a working dd... /usr/bin/dd
+[  121s] checking how to truncate binary pipes... /usr/bin/dd bs=4096 count=1
+[  121s] checking for riscv64-suse-linux-mt... no
+[  121s] checking for mt... no
+[  121s] checking if : is a manifest tool... no
+[  122s] checking for stdio.h... yes
+[  123s] checking for stdlib.h... yes
+[  123s] checking for string.h... yes
+[  124s] checking for inttypes.h... yes
+[  125s] checking for stdint.h... yes
+[  126s] checking for strings.h... yes
+[  126s] checking for sys/stat.h... yes
+[  127s] checking for sys/types.h... yes
+[  128s] checking for unistd.h... yes
+[  129s] checking for dlfcn.h... yes
+[  129s] checking for objdir... .libs
+[  132s] checking if gcc supports -fno-rtti -fno-exceptions... no
+[  132s] checking for gcc option to produce PIC... -fPIC -DPIC
+[  133s] checking if gcc PIC flag -fPIC -DPIC works... yes
+[  133s] checking if gcc static flag -static works... no
+[  134s] checking if gcc supports -c -o file.o... yes
+[  134s] checking if gcc supports -c -o file.o... (cached) yes
+[  135s] checking whether the gcc linker (/usr/riscv64-suse-linux/bin/ld) supports shared libraries... yes
+[  136s] checking whether -lc should be explicitly linked in... no
+[  139s] checking dynamic linker characteristics... GNU/Linux ld.so
+[  139s] checking how to hardcode library paths into programs... immediate
+[  139s] checking whether stripping libraries is possible... yes
+[  139s] checking if libtool supports shared libraries... yes
+[  139s] checking whether to build shared libraries... yes
+[  139s] checking whether to build static libraries... no
+[  139s] checking for riscv64-suse-linux-gcc... gcc
+[  139s] checking whether the compiler supports GNU C... (cached) yes
+[  139s] checking whether gcc accepts -g... (cached) yes
+[  139s] checking for gcc option to enable C11 features... (cached) none needed
+[  139s] checking whether gcc understands -c and -o together... (cached) yes
+[  139s] checking dependency style of gcc... (cached) none
+[  141s] checking for infiniband/verbs.h... yes
+[  141s] checking for arpa/inet.h... yes
+[  142s] checking for fcntl.h... yes
+[  142s] checking for inttypes.h... (cached) yes
+[  143s] checking for malloc.h... yes
+[  144s] checking for netdb.h... yes
+[  145s] checking for netinet/in.h... yes
+[  146s] checking for stddef.h... yes
+[  146s] checking for stdint.h... (cached) yes
+[  146s] checking for stdlib.h... (cached) yes
+[  146s] checking for string.h... (cached) yes
+[  146s] checking for sys/ioctl.h... yes
+[  147s] checking for sys/socket.h... yes
+[  148s] checking for sys/time.h... yes
+[  149s] checking for sys/timeb.h... yes
+[  150s] checking for syslog.h... yes
+[  150s] checking for unistd.h... (cached) yes
+[  151s] checking for struct ibv_port_attr.link_layer... yes
+[  153s] checking for gethostname... yes
+[  155s] checking for gettimeofday... yes
+[  157s] checking for inet_ntoa... yes
+[  160s] checking for memset... yes
+[  162s] checking for select... yes
+[  164s] checking for socket... yes
+[  166s] checking for strcasecmp... yes
+[  169s] checking for strdup... yes
+[  171s] checking for strerror... yes
+[  173s] checking for strtol... yes
+[  175s] checking for sysinfo... yes
+[  176s] checking whether ld accepts --version-script... yes
+[  176s] checking for scif.h... no
+[  176s] checking Check for SUSE_11 system... no
+[  177s] checking that generated files are newer than configure... done
+[  177s] configure: creating ./config.status
+[  186s] config.status: creating Makefile
+[  187s] config.status: creating test/dtest/Makefile
+[  187s] config.status: creating test/dapltest/Makefile
+[  188s] config.status: creating dapl.spec
+[  188s] config.status: creating mpxyd.init
+[  188s] config.status: creating config.h
+[  188s] config.status: executing depfiles commands
+[  189s] config.status: executing libtool commands
+[  189s] + make -j4 V=1
+[  189s] make  all-recursive
+[  190s] make[1]: Entering directory '/home/abuild/rpmbuild/BUILD/dapl-2.1.10'
+[  190s] Making all in .
+[  190s] make[2]: Entering directory '/home/abuild/rpmbuild/BUILD/dapl-2.1.10'
+[  190s] /usr/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.    -g -Wall -D_GNU_SOURCE -DDAT_CONF="\"/etc/dat.conf\"" -DMPXYD_CONF="\"/etc/mpxyd.conf\"" -DPACKAGE_DATE=$(date -u -d@${SOURCE_DATE_EPOCH:-$(date +%s)} +'%Y%m%d') -D_GNU_SOURCE -DOS_RELEASE=393223  -DDAT_EXTENSIONS   -DDEFINE_ATTR_LINK_LAYER -DOPENIB -DCQ_WAIT_OBJECT -I./dat/include/ -I./dapl/include/ -I./dapl/common -I./dapl/udapl/linux -I./dapl/openib_common -I./dapl/openib_cma -I./dapl/openib_cma/linux -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -c -o dapl_udapl_libdaplofa_la-dapl_init.lo `test -f 'dapl/udapl/dapl_init.c' || echo './'`dapl/udapl/dapl_init.c
+[  191s] /usr/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.    -g -Wall -D_GNU_SOURCE -DDAT_CONF="\"/etc/dat.conf\"" -DMPXYD_CONF="\"/etc/mpxyd.conf\"" -DPACKAGE_DATE=$(date -u -d@${SOURCE_DATE_EPOCH:-$(date +%s)} +'%Y%m%d') -D_GNU_SOURCE -DOS_RELEASE=393223  -DDAT_EXTENSIONS   -DDEFINE_ATTR_LINK_LAYER -DOPENIB -DCQ_WAIT_OBJECT -I./dat/include/ -I./dapl/include/ -I./dapl/common -I./dapl/udapl/linux -I./dapl/openib_common -I./dapl/openib_cma -I./dapl/openib_cma/linux -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -c -o dapl_udapl_libdaplofa_la-dapl_evd_create.lo `test -f 'dapl/udapl/dapl_evd_create.c' || echo './'`dapl/udapl/dapl_evd_create.c
+[  191s] libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -Wall -D_GNU_SOURCE -DDAT_CONF=\"/etc/dat.conf\" -DMPXYD_CONF=\"/etc/mpxyd.conf\" -DPACKAGE_DATE=20240226 -D_GNU_SOURCE -DOS_RELEASE=393223 -DDAT_EXTENSIONS -DDEFINE_ATTR_LINK_LAYER -DOPENIB -DCQ_WAIT_OBJECT -I./dat/include/ -I./dapl/include/ -I./dapl/common -I./dapl/udapl/linux -I./dapl/openib_common -I./dapl/openib_cma -I./dapl/openib_cma/linux -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -c dapl/udapl/dapl_init.c  -fPIC -DPIC -o .libs/dapl_udapl_libdaplofa_la-dapl_init.o
+[  192s] /usr/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.    -g -Wall -D_GNU_SOURCE -DDAT_CONF="\"/etc/dat.conf\"" -DMPXYD_CONF="\"/etc/mpxyd.conf\"" -DPACKAGE_DATE=$(date -u -d@${SOURCE_DATE_EPOCH:-$(date +%s)} +'%Y%m%d') -D_GNU_SOURCE -DOS_RELEASE=393223  -DDAT_EXTENSIONS   -DDEFINE_ATTR_LINK_LAYER -DOPENIB -DCQ_WAIT_OBJECT -I./dat/include/ -I./dapl/include/ -I./dapl/common -I./dapl/udapl/linux -I./dapl/openib_common -I./dapl/openib_cma -I./dapl/openib_cma/linux -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -c -o dapl_udapl_libdaplofa_la-dapl_evd_query.lo `test -f 'dapl/udapl/dapl_evd_query.c' || echo './'`dapl/udapl/dapl_evd_query.c
+[  192s] libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -Wall -D_GNU_SOURCE -DDAT_CONF=\"/etc/dat.conf\" -DMPXYD_CONF=\"/etc/mpxyd.conf\" -DPACKAGE_DATE=20240226 -D_GNU_SOURCE -DOS_RELEASE=393223 -DDAT_EXTENSIONS -DDEFINE_ATTR_LINK_LAYER -DOPENIB -DCQ_WAIT_OBJECT -I./dat/include/ -I./dapl/include/ -I./dapl/common -I./dapl/udapl/linux -I./dapl/openib_common -I./dapl/openib_cma -I./dapl/openib_cma/linux -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -c dapl/udapl/dapl_evd_create.c  -fPIC -DPIC -o .libs/dapl_udapl_libdaplofa_la-dapl_evd_create.o
+[  192s] In file included from ./dapl/include/dapl.h:53,
+[  192s]                  from dapl/udapl/dapl_init.c:39:
+[  192s] ./dapl/udapl/linux/dapl_osd.h:55:2: error: #error UNDEFINED ARCH
+[  192s]    55 | #error UNDEFINED ARCH
+[  192s]       |  ^~~~~
+[  192s] /usr/bin/bash ./libtool  --tag=CC   --mode=compile gcc -DHAVE_CONFIG_H -I.    -g -Wall -D_GNU_SOURCE -DDAT_CONF="\"/etc/dat.conf\"" -DMPXYD_CONF="\"/etc/mpxyd.conf\"" -DPACKAGE_DATE=$(date -u -d@${SOURCE_DATE_EPOCH:-$(date +%s)} +'%Y%m%d') -D_GNU_SOURCE -DOS_RELEASE=393223  -DDAT_EXTENSIONS   -DDEFINE_ATTR_LINK_LAYER -DOPENIB -DCQ_WAIT_OBJECT -I./dat/include/ -I./dapl/include/ -I./dapl/common -I./dapl/udapl/linux -I./dapl/openib_common -I./dapl/openib_cma -I./dapl/openib_cma/linux -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -c -o dapl_udapl_libdaplofa_la-dapl_cno_create.lo `test -f 'dapl/udapl/dapl_cno_create.c' || echo './'`dapl/udapl/dapl_cno_create.c
+[  192s] In file included from ./dapl/include/dapl.h:53,
+[  192s]                  from dapl/udapl/dapl_evd_create.c:40:
+[  192s] ./dapl/udapl/linux/dapl_osd.h:55:2: error: #error UNDEFINED ARCH
+[  192s]    55 | #error UNDEFINED ARCH
+[  192s]       |  ^~~~~
+[  193s] libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -Wall -D_GNU_SOURCE -DDAT_CONF=\"/etc/dat.conf\" -DMPXYD_CONF=\"/etc/mpxyd.conf\" -DPACKAGE_DATE=20240226 -D_GNU_SOURCE -DOS_RELEASE=393223 -DDAT_EXTENSIONS -DDEFINE_ATTR_LINK_LAYER -DOPENIB -DCQ_WAIT_OBJECT -I./dat/include/ -I./dapl/include/ -I./dapl/common -I./dapl/udapl/linux -I./dapl/openib_common -I./dapl/openib_cma -I./dapl/openib_cma/linux -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -c dapl/udapl/dapl_evd_query.c  -fPIC -DPIC -o .libs/dapl_udapl_libdaplofa_la-dapl_evd_query.o
+[  193s] make[2]: *** [Makefile:3176: dapl_udapl_libdaplofa_la-dapl_init.lo] Error 1
+[  193s] make[2]: *** Waiting for unfinished jobs....
+[  193s] make[2]: *** [Makefile:3183: dapl_udapl_libdaplofa_la-dapl_evd_create.lo] Error 1
+[  193s] libtool: compile:  gcc -DHAVE_CONFIG_H -I. -g -Wall -D_GNU_SOURCE -DDAT_CONF=\"/etc/dat.conf\" -DMPXYD_CONF=\"/etc/mpxyd.conf\" -DPACKAGE_DATE=20240226 -D_GNU_SOURCE -DOS_RELEASE=393223 -DDAT_EXTENSIONS -DDEFINE_ATTR_LINK_LAYER -DOPENIB -DCQ_WAIT_OBJECT -I./dat/include/ -I./dapl/include/ -I./dapl/common -I./dapl/udapl/linux -I./dapl/openib_common -I./dapl/openib_cma -I./dapl/openib_cma/linux -O2 -Wall -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -fstack-protector-strong -funwind-tables -fasynchronous-unwind-tables -fstack-clash-protection -Werror=return-type -flto=auto -g -c dapl/udapl/dapl_cno_create.c  -fPIC -DPIC -o .libs/dapl_udapl_libdaplofa_la-dapl_cno_create.o
+[  193s] In file included from ./dapl/include/dapl.h:53,
+[  193s]                  from dapl/udapl/dapl_evd_query.c:39:
+[  193s] ./dapl/udapl/linux/dapl_osd.h:55:2: error: #error UNDEFINED ARCH
+[  193s]    55 | #error UNDEFINED ARCH
+[  193s]       |  ^~~~~
+[  194s] In file included from ./dapl/include/dapl.h:53,
+[  194s]                  from dapl/udapl/dapl_cno_create.c:39:
+[  194s] ./dapl/udapl/linux/dapl_osd.h:55:2: error: #error UNDEFINED ARCH
+[  194s]    55 | #error UNDEFINED ARCH
+[  194s]       |  ^~~~~
+[  194s] make[2]: *** [Makefile:3190: dapl_udapl_libdaplofa_la-dapl_evd_query.lo] Error 1
+[  194s] make[2]: *** [Makefile:3197: dapl_udapl_libdaplofa_la-dapl_cno_create.lo] Error 1
+[  194s] make[2]: Leaving directory '/home/abuild/rpmbuild/BUILD/dapl-2.1.10'
+[  194s] make[1]: *** [Makefile:6538: all-recursive] Error 1
+[  194s] make[1]: Leaving directory '/home/abuild/rpmbuild/BUILD/dapl-2.1.10'
+[  194s] make: *** [Makefile:2374: all] Error 2
+[  194s] error: Bad exit status from /var/tmp/rpm-tmp.oqUYnP (%build)
+[  194s] 
+[  194s] RPM build errors:
+[  194s]     Bad exit status from /var/tmp/rpm-tmp.oqUYnP (%build)
+[  194s] ### VM INTERACTION START ###
+[  195s] Powering off.
+[  195s] [  191.276960][T10097] reboot: Power down
+[  195s] ### VM INTERACTION END ###
+[  195s] 
+[  195s] i04-ch4c failed "build dapl.spec" at Mon Feb 26 20:35:24 UTC 2024.
+[  195s] 
